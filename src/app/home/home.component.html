@@ -1,0 +1,39 @@
+<div class="container">
+  <h5 class="card-photo">Photo List</h5>
+  <div class="card-group scroll">
+    <div class="row">
+      <div class="card col-md-2" *ngFor="let element of arrayList">
+        <img class="card-img-top" [src]="element.url">
+
+        <div class="card-body">
+          <h6 class="card-title">{{element.title}}</h6>
+          <p class="card-text">{{element.id}}</p>
+          <p class="card-text">{{element.url}}</p>
+          <button class="btn btn-primary" (click)="clickCom(element)">{{element.button}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <hr />
+  <h5>Comparison Table</h5>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Images</th>
+        <th>Title</th>
+        <th>URL</th>
+        <th>Thumbnail URL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let element of newArray">
+        <td><img class="img" [src]="element.url" alt="images" style="width:100px; height:100px;"></td>
+        <td>{{element.title}}</td>
+        <td>{{element.url}}</td>
+        <td>{{element.thumbnailUrl}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
