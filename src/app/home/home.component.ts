@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HomeServiceService } from '../home-service.service';
+import * as images from '../../assets/images.json';
 
 @Component({
   selector: 'app-home',
@@ -8,22 +8,18 @@ import { HomeServiceService } from '../home-service.service';
 })
 export class HomeComponent implements OnInit {
 
-  arrayList: any = [];
+  arrayList: any = (images as any).default;
   newArray: any = [];
-  constructor(private homeService: HomeServiceService) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.getDataFromService();
   }
 
   getDataFromService() {
-    this.homeService.getService()
-      .subscribe(result => {
-        this.arrayList = result;
-        this.arrayList.forEach(element => {
-          element.button = 'Compare';
-        });
-      });
+    this.arrayList.forEach(element => {
+      element.button = 'Compare';
+    });
   }
 
   clickCom(data) {
